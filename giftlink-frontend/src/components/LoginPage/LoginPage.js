@@ -14,7 +14,7 @@ function LoginPage() {
 
     const navigate = useNavigate();
     const bearerToken = sessionStorage.getItem('bearer-token');
-    const { setIsLoggedIn } = useAppContext();
+    const { setIsLoggedIn, setUserName } = useAppContext();
 
     useEffect(() => {
         if (sessionStorage.getItem('auth-token')) {
@@ -52,6 +52,7 @@ function LoginPage() {
                 sessionStorage.setItem('email', json.userEmail);
                 //Step 2: Task 3
                 setIsLoggedIn(true);
+                setUserName(json.userName);
                 //Step 2: Task 4
                 navigate('/app');
             } else {

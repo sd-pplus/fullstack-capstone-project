@@ -12,7 +12,7 @@ function RegisterPage() {
     const [showerr, setShowerr] = useState('');
 
     const navigate = useNavigate();
-    const { setIsLoggedIn } = useAppContext();
+    const { setIsLoggedIn, setUserName } = useAppContext();
 
     const handleRegister = async () => {
         try {
@@ -36,6 +36,7 @@ function RegisterPage() {
                 sessionStorage.setItem('name', firstName);
                 sessionStorage.setItem('email', json.email);
                 setIsLoggedIn(true);
+                setUserName(firstName);
                 navigate('/app');
             }
 

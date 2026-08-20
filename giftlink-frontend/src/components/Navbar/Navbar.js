@@ -20,6 +20,7 @@ export default function Navbar() {
         sessionStorage.removeItem('name');
         sessionStorage.removeItem('email');
         setIsLoggedIn(false);
+        setUserName('');
         navigate(`/app`);
 
     }
