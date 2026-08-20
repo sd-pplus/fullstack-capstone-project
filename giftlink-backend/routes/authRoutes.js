@@ -81,7 +81,7 @@ router.post('/login', async (req, res) => {
             // Task 6: Create JWT authentication if passwords match with user._id as payload
             const payload = {
                 user: {
-                    id: theUser._id,
+                    id: theUser._id.toString(),
                 },
             };
     
