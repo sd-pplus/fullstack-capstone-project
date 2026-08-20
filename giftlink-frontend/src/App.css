@@ -156,9 +156,10 @@ body,
   font-weight: bold; /* Makes the active link bold */
 }
 
-/* Style for login button */
-.nav-link.login-btn {
-  background-color: #28a745; /* A green color for login */
+/* Style for login and register buttons */
+.nav-link.login-btn,
+.nav-link.register-btn {
+  background-color: #007bff; /* Blue for login and register */
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
@@ -166,8 +167,10 @@ body,
 }
 
 .nav-link.login-btn:hover,
-.nav-link.login-btn:focus {
-  background-color: #218838; /* A darker green on hover/focus for login */
+.nav-link.login-btn:focus,
+.nav-link.register-btn:hover,
+.nav-link.register-btn:focus {
+  background-color: #0056b3; /* Darker blue on hover/focus */
   color: white;
   text-decoration: none;
 }

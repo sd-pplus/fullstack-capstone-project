@@ -10,17 +10,11 @@ export default function Navbar() {
     useEffect(() => {
         const authTokenFromSession = sessionStorage.getItem('auth-token');
         const nameFromSession = sessionStorage.getItem('name');
-        if (authTokenFromSession) {
-            if (isLoggedIn && nameFromSession) {
-                setUserName(nameFromSession);
-            } else {
-                sessionStorage.removeItem('auth-token');
-                sessionStorage.removeItem('name');
-                sessionStorage.removeItem('email');
-                setIsLoggedIn(false);
-            }
+        if (authTokenFromSession && nameFromSession) {
+            setIsLoggedIn(true);
+            setUserName(nameFromSession);
         }
-    }, [isLoggedIn, setIsLoggedIn, setUserName])
+    }, [setIsLoggedIn, setUserName])
     const handleLogout = () => {
         sessionStorage.removeItem('auth-token');
         sessionStorage.removeItem('name');
@@ -55,7 +49,7 @@ export default function Navbar() {
                         <ul className="navbar-nav ml-auto">
                             {isLoggedIn ? (
                                 <>
-                                    <li className="nav-item"> <span className="nav-link" style={{ color: "black", cursor: "pointer" }} onClick={profileSecton}>Welcome, {userName}</span> </li>
+                                    <li className="nav-item"> <span className="nav-link" style={{ color: "black", cursor: "pointer", textDecoration: "underline" }} onClick={profileSecton}>Welcome, {userName}</span> </li>
                                     <li className="nav-item"><button className="nav-link login-btn" onClick={handleLogout}>Logout</button></li>
                                 </>
                             ) : (
